@@ -30,10 +30,10 @@ def main():
     name = "<Enter the username here>"
     try:
         followers = api.get_user(name).followers_count
-        followers = name+" has "+str(followers)+" followers"
+        print(name+" has "+str(followers)+" followers.")
     except tweepy.error.TweepError as e:
         err = str(e.response.text)
         print(getExceptionMessage(err))
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     main()
