@@ -1,4 +1,5 @@
 import tweepy, time
+from tkinter import *
 
 def getExceptionMessage(msg):
     words = msg.split(':')
@@ -27,13 +28,9 @@ def main():
     auth.set_access_token(access_token, access_secret)
 
     api = tweepy.API(auth)
-    name = "<Enter the username here>"
-    try:
-        followers = api.get_user(name).followers_count
-        print(name+" has "+str(followers)+" followers.")
-    except tweepy.error.TweepError as e:
-        err = str(e.response.text)
-        print(getExceptionMessage(err))
+    root = Tk()
+    frame = Frame(root)
+    frame.pack()
 
 if __name__ == "__main__":
     main()
